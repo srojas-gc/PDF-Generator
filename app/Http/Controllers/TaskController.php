@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class TaskController extends Controller
 {
@@ -72,4 +73,60 @@ class TaskController extends Controller
     {
         Task::findOrFail($id)->delete();
     }
+
+    public function exportPDF($id)
+    {
+        $presupuesto = Task::findOrFail($id);   
+
+        $pdf = PDF::loadView('pdf.tasks',compact('presupuesto'));
+
+        //descarga directamente el archivo
+        // return $pdf->download('presupuesto-CloudSpace.pdf');  
+        
+        //abre el archivo en una nueva ventana
+        return PDF::loadView('pdf.tasks',compact('presupuesto'))
+            ->stream('presupuesto-CloudSpace.pdf');
+    }
+
+    public function showPDF()
+    {
+        $tasks = Task::get();
+        
+        return view('pdf.tasks')
+            ->with('tasks', $tasks)
+        ;       
+    }
+
+    public function contentEdit($id)
+    {
+        $task = Task::findOrFail($id);   
+        
+        return view('content-edit',compact('task'));
+    }
+
+    public function contentUpdate(Request $request, Task $task)
+    {    
+        $this->validate($request,[
+            'name' => 'required',
+            'nameCreador' => 'required',
+            'fecha_emision'=> 'required',
+            'valido_hasta'=>'required'
+        ]); 
+
+        // dd($request->get('nameCreador'));
+        
+        // $task->name = $request->get('name');
+        $task->nameCreador = $request->get('nameCreador');
+        $task->fecha_emision = $request->get('fecha_emision');
+        $task->valido_hasta = $request->get('valido_hasta');
+        $task->contenido1 = $request->get('contenido1');
+        $task->contenido2 = $request->get('contenido2');
+        $task->contenido3 = $request->get('contenido3');
+        $task->contenido4 = $request->get('contenido4');
+        
+        $task->save();
+
+        return redirect()->route('home')->with("ok-editContenido","");
+    }
+
 }

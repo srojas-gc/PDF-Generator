@@ -4,17 +4,21 @@ import {Link} from 'react-router-dom';
 
 function App() {
 
-    const [newTask, setNewTask] = useState({name:''});
+    const [newTask, setNewTask] = useState({
+        name:''
+    });
 
     const [tasks, setTasks] = useState([]);
 
     const handleChange = e => {
         // console.log(e.target.value);
-        setNewTask({name: e.target.value});
+        setNewTask({
+            name: e.target.value
+        });        
     }
 
     const handleSubmit = e =>{
-        e.preventDefault();
+        e.preventDefault();        
         
         axios.post('/tasks', {
             name:newTask.name
@@ -31,21 +35,34 @@ function App() {
             <div key={task.id} className="media">
                 <div className="media-body">
                     <div>
-                        {task.name}{' '}
+                        <p>
+                            Documento creado para: <span style={{'fontWeight':'bold'}}>{task.name}{' '}</span>
+                        </p>
                         <span className="text-muted">
                             <br />
-                            by {task.user.name} | {task.updated_at.split(' ').slice(1).join(' ')}
+                            por {task.user.name} | {task.updated_at.split(' ').slice(1).join(' ')}
                         </span>
-                        <Link to={`/${task.id}/edit`} className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
-                            Update
-                        </Link>
                         <button 
                             onClick={() => handleDelete(task.id)} 
                             className="btn btn-sm btn-danger float-right"
                             style={{'marginLeft':'5px'}}
                         >
-                            Delete
+                            Borrar
                         </button>
+                         
+                        <Link to={`/presupuesto-pdf/${task.id}`} target="_blank" className="btn btn-sm btn-success float-right" style={{'marginLeft':'4px'}}>
+                            Generar PDF
+                        </Link>
+                        <Link to={`/content-edit/${task.id}`} target="_blank" className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
+                            Cargar contenido
+                        </Link> 
+                        {/* <Link to={`/${task.id}/edit`} className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
+                            Cargar contenido
+                        </Link>  */}
+                        {/* <a href="/show-pdf" target="_blank" className="btn btn-sm btn-primary float-right" style={{'marginLeft':'4px'}}>
+                            See PDF
+                        </a> */}
+                        
                     </div>  
                     <hr/>
                 </div>
@@ -83,19 +100,18 @@ function App() {
                         <div className="card-body">
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
-                                    <textarea 
+                                    <input 
                                         onChange={handleChange}
                                         value={newTask.name}
-                                        name="nombre"
-                                        className="form-control" 
-                                        rows="5"
+                                        name="name"
+                                        className="form-control"                                        
                                         maxLength="255"
-                                        placeholder="Create new task"
+                                        placeholder="Nombre del cliente"
                                         required
                                     />
-                                </div>
+                                </div>                             
                                 <button type="submit" className="btn btn-primary">
-                                    Create Task
+                                    Create Presupuesto
                                 </button>
                             </form>
 

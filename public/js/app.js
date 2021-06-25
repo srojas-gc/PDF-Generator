@@ -80116,15 +80116,13 @@ function App() {
         className: "media"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "media-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, task.name, ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        className: "text-muted"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "by ", task.user.name, " | ", task.updated_at.split(' ').slice(1).join(' ')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/".concat(task.id, "/edit"),
-        className: "btn btn-sm btn-warning float-right",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Documento creado para: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
         style: {
-          'marginLeft': '2px'
+          'fontWeight': 'bold'
         }
-      }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, task.name, ' ')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "text-muted"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "por ", task.user.name, " | ", task.updated_at.split(' ').slice(1).join(' ')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: function onClick() {
           return handleDelete(task.id);
         },
@@ -80132,7 +80130,21 @@ function App() {
         style: {
           'marginLeft': '5px'
         }
-      }, "Delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null)));
+      }, "Borrar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/presupuesto-pdf/".concat(task.id),
+        target: "_blank",
+        className: "btn btn-sm btn-success float-right",
+        style: {
+          'marginLeft': '4px'
+        }
+      }, "Generar PDF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/content-edit/".concat(task.id),
+        target: "_blank",
+        className: "btn btn-sm btn-warning float-right",
+        style: {
+          'marginLeft': '2px'
+        }
+      }, "Cargar contenido")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null)));
     });
   };
 
@@ -80175,19 +80187,18 @@ function App() {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     onChange: handleChange,
     value: newTask.name,
-    name: "nombre",
+    name: "name",
     className: "form-control",
-    rows: "5",
     maxLength: "255",
-    placeholder: "Create new task",
+    placeholder: "Nombre del cliente",
     required: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
-  }, "Create Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null), renderTasks())))));
+  }, "Create Presupuesto")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null), renderTasks())))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -80301,7 +80312,7 @@ var TaskEdit = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props.match.params.id);
+      // console.log(this.props.match.params.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80311,39 +80322,9 @@ var TaskEdit = /*#__PURE__*/function (_Component) {
         ref: ref
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/img/header-1.jpg",
-        alt: "Grupo CloudSpace"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/img/logoGC.png",
-        alt: "Grupo CloudSpace",
-        style: {
-          'padding': '50px'
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        style: {
-          'color': '#8f8f8f',
-          'fontSize': '17px'
-        }
-      }, "Propuesta Comercial"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        style: {
-          'color': '#00b3e3',
-          'fontSize': '26px'
-        }
-      }, "Ofrecemos IT moderna como un servicio a trav\xE9s de aplicaciones, datos, seguridad e infraestructura."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        style: {
-          'fontSize': '15px',
-          'textAlign': 'center',
-          'fontWeight': 'bold'
-        }
-      }, "Propuesta enviada el 31/05/2021"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        style: {
-          'fontSize': '15px',
-          'textAlign': 'center'
-        }
-      }, this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -80358,28 +80339,7 @@ var TaskEdit = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "Edit Task"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_to_pdf__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        targetRef: ref,
-        filename: "prespuesto-GC.pdf",
-        options: options,
-        y: 1.9,
-        x: 3
-      }, function (_ref) {
-        var toPdf = _ref.toPdf;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: toPdf,
-          className: "btn btn-danger",
-          style: {
-            'marginTop': '30px'
-          }
-        }, "Generate PDF");
-      }))))));
+      }, "Guardar cambios")))))));
     }
   }]);
 
@@ -80440,8 +80400,8 @@ if (document.getElementById('root')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\taskManager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\taskManager\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\laravel-react-spa\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\laravel-react-spa\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

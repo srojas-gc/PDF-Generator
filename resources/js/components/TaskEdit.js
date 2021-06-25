@@ -53,32 +53,13 @@ class TaskEdit extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.id);
+        // console.log(this.props.match.params.id);
         return (
             <div className="container">
                 <div className="row justify-content-center">                    
                     <div className="col-md-8" ref={ref}>
                         <div className="card">
-                            <img src="/img/header-1.jpg" alt="Grupo CloudSpace" />
-                            <img src="/img/logoGC.png" alt="Grupo CloudSpace" style={{'padding':'50px'}} />
-                            {/* <div className="card-header">CloudSpace</div> */}
-
                             <div className="card-body">
-
-                                <p style={{'color':'#8f8f8f','fontSize':'17px'}}>
-                                    Propuesta Comercial
-                                </p>
-                                <p style={{'color':'#00b3e3','fontSize':'26px'}}>
-                                    Ofrecemos IT moderna como un servicio a través de aplicaciones, datos, seguridad e infraestructura.
-                                </p>
-
-                                <p style={{'fontSize':'15px','textAlign':'center','fontWeight':'bold'}}>
-                                    Propuesta enviada el 31/05/2021
-                                </p>
-                                <p style={{'fontSize':'15px','textAlign':'center'}}>
-                                    {this.state.name}
-                                </p>
-
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <textarea
@@ -92,21 +73,13 @@ class TaskEdit extends Component {
                                         />
                                     </div>
                                     <button type="submit" className="btn btn-primary">
-                                        Edit Task
+                                        Guardar cambios
                                     </button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-8">
-                        <div className="container">
-                            <div className="row justify-content-center"> 
-                                <Pdf targetRef={ref} filename="prespuesto-GC.pdf" options={options} y={1.9} x={3}>
-                                    {({ toPdf }) => <button onClick={toPdf} className="btn btn-danger" style={{'marginTop':'30px'}}>Generate PDF</button>}
-                                </Pdf>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         );
