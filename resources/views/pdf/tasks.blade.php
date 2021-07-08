@@ -171,13 +171,217 @@
 
                         <div class="page-break"></div>
 
-                        <img src="img/header-img2.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                        @for ($i = 1; $i <= $presupuesto->ContentCant; $i++)
+                            
+                            @switch($i)
 
-                        <div style="width:130%;margin-left:-80px">                         
+                                @case(1)                                    
+                                    <img src="img/header-img2.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
 
-                            {!!$presupuesto->contenido1!!}
+                                        {!!$presupuesto->contenido1!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+                                @case(2)                                    
+                                    <img src="img/header-img3.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
 
-                        </div>
+                                        {!!$presupuesto->contenido2!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(3)                                    
+                                    <img src="img/header-img4.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido3!!}
+            
+                                    </div> 
+                                    <div class="page-break"></div>
+                                    @break 
+                                
+                                @case(4)                                    
+                                    <img src="img/header-img5.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido4!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(5)                                    
+                                    <img src="img/header-img6.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido5!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(6)                                    
+                                    <img src="img/header-img7.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido6!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(7)                                    
+                                    <img src="img/header-img8.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido7!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(8)                                    
+                                    <img src="img/header-img9.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido8!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(9)                                    
+                                    <img src="img/header-img10.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido9!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+                                @break
+
+                                @case(10)                                    
+                                    <img src="img/header-img11.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido10!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(11)                                    
+                                    <img src="img/header-img12.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido11!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(12)                                    
+                                    <img src="img/header-img13.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido12!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(13)                                    
+                                    <img src="img/header-img14.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido13!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(14)                                    
+                                    <img src="img/header-img15.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido14!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(15)                                    
+                                    <img src="img/header-img16.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido15!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(16)                                    
+                                    <img src="img/header-img17.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido16!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(17)                                    
+                                    <img src="img/header-img18.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido17!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(18)                                    
+                                    <img src="img/header-img19.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido18!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+                                
+                                @case(19)                                    
+                                    <img src="img/header-img20.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido19!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+
+                                @case(20)                                    
+                                    <img src="img/header-img21.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+                                    <div style="width:130%;margin-left:-80px">                         
+
+                                        {!!$presupuesto->contenido20!!}
+            
+                                    </div>
+                                    <div class="page-break"></div>
+                                    @break
+                                    
+                            @endswitch
+
+                        @endfor
+
+                        {{-- <img src="img/header-img2.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
+
+                        
 
                         <div class="page-break"></div>
 
@@ -207,9 +411,9 @@
 
                             {!!$presupuesto->contenido4!!}
                             
-                        </div>
+                        </div> --}}
 
-                        <div class="page-break"></div>
+                        {{-- <div class="page-break"></div> --}}
 
                         <img src="img/img-footer.jpg" alt="Grupo CloudSpace" style="margin-left:-130px;width:150%;margin-top:-90px" />
 

@@ -2,7 +2,14 @@ import Axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
+import { Button, Modal } from 'react-bootstrap';
+
 function App() {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const [newTask, setNewTask] = useState({
         name:''
@@ -14,7 +21,8 @@ function App() {
         // console.log(e.target.value);
         setNewTask({
             name: e.target.value
-        });        
+            // ...values, [e.target.name] : e.target.value
+        });    
     }
 
     const handleSubmit = e =>{
@@ -22,6 +30,7 @@ function App() {
         
         axios.post('/tasks', {
             name:newTask.name
+            // data: {name:newTask.name, contentCant:newTask.contentCant}
         })
         .then(response => {
             // console.log('from handle submit', response)
@@ -50,20 +59,61 @@ function App() {
                             Borrar
                         </button>
                          
-                        <Link to={`/presupuesto-pdf/${task.id}`} target="_blank" className="btn btn-sm btn-success float-right" style={{'marginLeft':'4px'}}>
-                            Generar PDF
-                        </Link>
-                        <Link to={`/content-edit/${task.id}`} target="_blank" className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
-                            Cargar contenido
-                        </Link> 
-                        {/* <Link to={`/${task.id}/edit`} className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
-                            Cargar contenido
-                        </Link>  */}
-                        {/* <a href="/show-pdf" target="_blank" className="btn btn-sm btn-primary float-right" style={{'marginLeft':'4px'}}>
-                            See PDF
-                        </a> */}
                         
-                    </div>  
+                        {/* <Button className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}} onClick={handleShow}>
+                            Cargar contenido
+                        </Button>
+                        <Modal
+                            show={show}
+                            onHide={handleClose}
+                            backdrop="static"
+                            keyboard={false}
+                        >
+                            <Modal.Header closeButton>
+                                <Modal.Title>Cantidad de contenidos dinámicos a cargar para {task.name}</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                            <input                                
+                                type="number"
+                                min="2" 
+                                max="20"
+                                name="contentCant"
+                                className="form-control"
+                                required
+                            />
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Cerrar
+                                </Button>
+                                <Link to={`/content-updateCant//${task.id}`} className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
+                                    Cargar contenido
+                                </Link>
+                            </Modal.Footer>
+                        </Modal> */}
+                        {
+                            task.hasContent 
+                            ? 
+                            <Link to={`/presupuesto-pdf/${task.id}`} target="_blank" className="btn btn-sm btn-success float-right" style={{'marginLeft':'4px'}}>
+                                Generar PDF
+                            </Link>  
+                            : 
+                            <span></span>
+                        }
+
+                        {
+                            task.hasContent 
+                            ? 
+                            <Link to={`/content-edit/${task.id}`} target="_blank" className="btn btn-sm btn-info float-right" style={{'marginLeft':'2px'}}>
+                                Editar contenidos
+                            </Link>  
+                            : 
+                            <Link to={`/content-edit/${task.id}`} target="_blank" className="btn btn-sm btn-warning float-right" style={{'marginLeft':'2px'}}>
+                                Cargar contenidos
+                            </Link> 
+                        }                                                
+                        
+                    </div> 
                     <hr/>
                 </div>
             </div>
@@ -94,30 +144,36 @@ function App() {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header"> Generate PDF</div>
+                    <div className="card"  style={{'marginTop':'70px'}}>
+                        <div className="card-header"> Generador de Documentos PDF</div>
 
-                        <div className="card-body">
-                            <form onSubmit={handleSubmit}>
+                        <div className="card-body" align="center">
+
+                            {/* <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <input 
-                                        onChange={handleChange}
-                                        value={newTask.name}
+                                        onChange={handleChange}                                        
                                         name="name"
                                         className="form-control"                                        
                                         maxLength="255"
                                         placeholder="Nombre del cliente"
                                         required
+                                        value={newTask.name}
                                     />
-                                </div>                             
+                                </div>
+
                                 <button type="submit" className="btn btn-primary">
-                                    Create Presupuesto
+                                    Crear documento
                                 </button>
-                            </form>
+                            </form> */}
+
+                            <Link to={'/content-create/'} target="_blank" className="btn btn-primary">
+                                Crear nuevo documento
+                            </Link> 
 
                             <hr />
                             
-                            {renderTasks()}  
+                            {/* {renderTasks()}   */}
 
                         </div>
                     </div>

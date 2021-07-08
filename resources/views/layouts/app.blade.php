@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'PDF Exporter') }} - Grupo Cloudspace</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,6 +23,10 @@
     {{-- <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script> --}}
     <script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
 
+    <!-- include summernote css/js -->
+    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">     --}}
+    <link rel="stylesheet" href="/css/summernote.css">
+
     <script src="https://use.fontawesome.com/523e7f70ad.js"></script>
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -32,14 +36,15 @@
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
 
-    <link id="dark-scheme-icon" rel="icon" type="image/png" href="https://inner.grupocloudspace.com/images/grupo-cloudspace-favicon-white.png">
+    <link rel="shortcut icon" href="https://lh3.googleusercontent.com/T-dXdEuOgI_1aNjw1dIjCy43FY_oTVEScgmdtUFuin8uw6fmw_e_U1u9B4p283pT1UbfbaTcv-V6FNZ6R2BFow&#x3D;s32" type="image/x-icon">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: white;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/home') }}" style="color:white">
+                    <!-- {{ config('app.name', 'PDF Exporter') }} -->
+                    <img src="https://lh3.googleusercontent.com/kLyK9pgS1-qDzHZ-Zoj-Il6W5bSND6HK5FDl9vdL6dtOW1aFCBPAeHeqQquuELal8GbrnOGNtezsEnV76tW4Bbw3Ll5CyqYA_w=s0" style="width:299px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,14 +60,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                           <!--  <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
+                            </li> -->
+                         <!--    @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -91,14 +96,29 @@
             @yield('content')
         </main>
     </div>
-
+    {{-- <script src="/js/summernote.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}       
+    
     <script src="https://unpkg.com/notie"></script>
+
+    @stack('scripts')
 
     @if (Session::has("ok-editContenido"))
         <script>
             notie.alert({
             type: 1,
             text: 'Se guardaron los cambios para el contenido correctamente.',
+            time: 7,
+            position:'top'
+            })
+        </script>
+    @endif
+
+    @if (Session::has("ok-editInitData"))
+        <script>
+            notie.alert({
+            type: 1,
+            text: 'Los datos de cabecera se guardaron correctamente. Ahora puede editar los contenidos',
             time: 7,
             position:'top'
             })
