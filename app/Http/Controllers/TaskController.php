@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function index(Request $request, Task $task)
     {
@@ -116,7 +116,8 @@ class TaskController extends Controller
     public function contentCreate(Request $request)
     {    
         
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
+        $user_id = 1;
 
         // dd($user_id); 
 

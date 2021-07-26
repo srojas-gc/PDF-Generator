@@ -1,14 +1,15 @@
 <?php
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
-Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
+// Auth::routes();
 
-    Route::get('/home', 'HomeController@index')->name('home');
+// Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('/presupuesto-pdf/{id}', 'TaskController@exportPDF')->name('exportPDF');
 
@@ -26,4 +27,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/content-updateCant/{task}', 'TaskController@contentUpdateCant')->name('content.updateCant');
 
     Route::resource('tasks', 'TaskController');
-});
+// });
